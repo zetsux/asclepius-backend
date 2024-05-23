@@ -11,7 +11,8 @@ async function getData() {
   const db = new Firestore();
   const collectionRef = db.collection('prediction');
   const snapshot = await collectionRef.get();
-  const data = [];
+
+  let data = [];
   snapshot.forEach((doc) => {
     const docData = doc.data();
     data.push({
