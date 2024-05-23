@@ -29,16 +29,16 @@ async function postPredictHandler(request, h) {
 }
 
 async function getHistoryHandler(request, h) {
+  let response;
   try {
     const data = await getData();
-
-    const response = h.response({
+    response = h.response({
       status: 'success',
       data,
     });
     response.code(200);
   } catch (e) {
-    const response = h.response({
+    response = h.response({
       status: 'fail',
       message: e.message,
     });

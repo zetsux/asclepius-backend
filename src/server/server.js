@@ -23,10 +23,7 @@ const loadModel = require('../services/loadModel');
   server.ext('onPreResponse', function (request, h) {
     const response = request.response;
 
-    if (
-      response.isBoom &&
-      (response.output.statusCode == 413 || response.output.statusCode == 400)
-    ) {
+    if (response.isBoom) {
       const newResponse = h.response({
         status: 'fail',
         message:
